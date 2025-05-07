@@ -49,3 +49,49 @@ export const logout = async () => {
         console.error(error)
     }
 }
+
+export const updateProfile = async (data: any) => {
+    try {
+        const id = await AsyncStorage.getItem("user_id")
+        const profile = await api.put(`api/users/${id}`, {
+            username: data.username,
+            password: data.password
+        })
+
+        return profile
+
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const createGroup = async (data: any) => {
+    try {
+
+        const group = await api.post(`api/groups`, data)
+        return group
+
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const getGroup = async () => {
+    try {
+        const id = await AsyncStorage.getItem("user_id")
+        const group = await api.get(`api/groups?userId=${id}`)
+        return group
+
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const getUsers = async () => {
+    try {
+        const users = await api.get(`api/users`)
+        return users
+    } catch (error) {
+        console.error(error)
+    }
+}

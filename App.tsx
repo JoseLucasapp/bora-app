@@ -24,6 +24,7 @@ import Login from './src/screens/login';
 import Achievements from './src/screens/achievements';
 import Groups from './src/screens/groups';
 import Profile from './src/screens/profile';
+import GroupHome from './src/screens/groupHome';
 
 
 enableScreens();
@@ -61,6 +62,7 @@ export default function App() {
           <Stack.Screen name="Achievements" component={Achievements} />
           <Stack.Screen name="Groups" component={Groups} />
           <Stack.Screen name="Profile" component={Profile} />
+          <Stack.Screen name="GroupHome" component={GroupHome} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider >

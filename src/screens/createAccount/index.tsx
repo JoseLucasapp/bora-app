@@ -17,7 +17,10 @@ const CreateAccount = () => {
 
     const handleCreateAccount = async () => {
 
-        const account = await createAccount({ username, password })
+        const account = await createAccount({
+            username: username.trim(),
+            password: password.trim(),
+        })
         if (account && account.status == 201) {
             navigation.navigate("Home")
         } else {

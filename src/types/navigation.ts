@@ -8,6 +8,7 @@ export type RootStackParamList = {
     Groups: undefined;
     Achievements: undefined;
     Profile: undefined;
+    GroupHome: undefined;
 }
 
 export type HomeNavigationProp = StackNavigationProp<RootStackParamList, "Home">
@@ -17,3 +18,4 @@ export type LoginNavigationProp = StackNavigationProp<RootStackParamList, "Login
 export type GroupsNavigationProp = StackNavigationProp<RootStackParamList, "Groups">
 export type AchievementsNavigationProp = StackNavigationProp<RootStackParamList, "Achievements">
 export type ProfileNavigationProp = StackNavigationProp<RootStackParamList, "Profile">
+export type GroupHomeNavigationProp = StackNavigationProp<RootStackParamList, "GroupHome">

@@ -23,8 +23,9 @@ const styles = StyleSheet.create({
 
     bottomMenu: {
         width: "90%",
+        position: "absolute",
         bottom: 0,
-        marginTop: 60,
+        marginBottom: 50,
 
     },
     userDataInfo: {

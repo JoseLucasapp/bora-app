@@ -8,6 +8,7 @@ type GroupsModalProps = {
 }
 const GroupsModal: React.FC<GroupsModalProps> = ({ setOpenModal }) => {
     const [openNewGroup, setOpenNewGroup] = useState(false)
+    const [groupType, setGroupType] = useState("")
 
     const menu = [
         {
@@ -23,6 +24,7 @@ const GroupsModal: React.FC<GroupsModalProps> = ({ setOpenModal }) => {
     };
 
     const handleCreateNewGroup = (type: string) => {
+        setGroupType(type)
         setOpenNewGroup(!openNewGroup)
     }
 
@@ -87,7 +89,7 @@ const GroupsModal: React.FC<GroupsModalProps> = ({ setOpenModal }) => {
             </View>
 
             {
-                openNewGroup && <NewGroup setOpenModal={setOpenNewGroup} />
+                openNewGroup && <NewGroup type={groupType} setOpenModal={setOpenNewGroup} />
             }
         </View>
     )

@@ -3,12 +3,7 @@ import { Calendar } from 'react-native-calendars';
 import { StyleSheet, View } from 'react-native';
 import dayjs from 'dayjs';
 
-const trainedDates = [
-    '2025-04-01', '2025-04-02', '2025-04-03',
-    '2025-04-10', '2025-04-11', '2025-04-12',
-    '2025-04-18', '2025-04-19', '2025-04-20',
-    '2025-04-25', '2025-04-26', '2025-05-01'
-];
+const trainedDates = ['2025-05-07']; //'2025-05-01'
 
 const today = dayjs().format('YYYY-MM-DD');
 

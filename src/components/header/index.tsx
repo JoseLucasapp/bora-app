@@ -8,13 +8,10 @@ type HeaderComponentsProps = {
 
 const HeaderComponent: React.FC<HeaderComponentsProps> = ({ message }) => {
     const [username, setUsername] = useState("");
-    const [avatar, setAvatar] = useState("");
     useEffect(() => {
         const loadUsername = async () => {
             const saved = await AsyncStorage.getItem("username");
-            const avatar = await AsyncStorage.getItem("avatar");
             if (saved) setUsername(saved);
-            if (avatar) setAvatar(avatar);
         };
 
         loadUsername();
@@ -27,7 +24,7 @@ const HeaderComponent: React.FC<HeaderComponentsProps> = ({ message }) => {
             </View>
 
             <View style={styles.userImageContainer}>
-                <Image style={styles.userImage} source={require(avatar)} />
+                <Image style={styles.userImage} source={require("../../../assets/icons/avatar.png")} />
             </View>
         </View>
     )
@@ -63,8 +60,8 @@ const styles = StyleSheet.create({
 
     },
     userImage: {
-        width: 100,
-        height: 100,
+        width: 80,
+        height: 80,
         borderRadius: 50
     },
 })

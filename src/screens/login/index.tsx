@@ -1,4 +1,4 @@
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { Image, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, View } from "react-native"
 import EyeIconComponent from "../../components/eyeIconComponent"
 import { useState } from "react";
 import styles from "./styles";
@@ -14,12 +14,15 @@ const Login = () => {
     const navigation = useNavigation<LoginNavigationProp>()
 
     const handleLogin = async () => {
-        const userLogin = await login({ username, password })
+        const userLogin = await login({
+            username: username.trim(),
+            password: password.trim(),
+        })
         if (userLogin && userLogin.status == 200) {
             const token = userLogin.data.token
             await AsyncStorage.setItem("token", token)
             await AsyncStorage.setItem("username", userLogin.data.user.username)
-            await AsyncStorage.setItem("avatar", userLogin.data.user.avatar)
+            await AsyncStorage.setItem("user_id", userLogin.data.user._id)
             navigation.navigate("Home")
         } else {
             navigation.navigate("FirstPage")
@@ -31,7 +34,7 @@ const Login = () => {
     }
 
     return (
-        <View style={styles.mainLogin}>
+        <KeyboardAvoidingView style={styles.mainLogin}>
             <TouchableOpacity style={styles.arrow} onPress={() => handleBack()}>
                 <Image source={require('../../../assets/icons/arrow.png')} />
             </TouchableOpacity>
@@ -61,7 +64,7 @@ const Login = () => {
                     <Text style={styles.forgetPassword}>Esqueceu a senha</Text>
                 </View>
             </View>
-        </View>
+        </KeyboardAvoidingView>
     )
 }
 
